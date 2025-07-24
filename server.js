@@ -14,6 +14,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur lancé sur le port ${PORT}`);
 });
-app.get('/', (req, res) => {
-  res.send('Bot Daitem actif ✅');
-});
