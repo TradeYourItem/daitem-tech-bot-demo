@@ -1,16 +1,30 @@
-// Import d'Express
-const express = require('express');
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const compression = require("compression");
+
 const app = express();
 
-// Utilisation du port Render OU 3000 en local
-const PORT = process.env.PORT || 3000;
+// Middlewares
+app.use(cors());
+app.use(helmet());
+app.use(compression());
+app.use(express.json());
 
-// Route d'accueil
-app.get('/', (req, res) => {
-  res.send('Bot Daitem actif ✅');
+// ROUTE PRINCIPALE
+app.get("/", (req, res) => {
+  res.send("✅ Serveur IA Daitem opérationnel !");
 });
 
-// Démarrage du serveur
+// ROUTE DE TEST
+app.get("/health", (req, res) => {
+  res.json({ status: "OK", timestamp: new Date().toISOString() });
+});
+
+// AJOUTEZ ICI d'autres routes API au besoin
+
+// LANCEMENT DU SERVEUR avec port dynamique pour Render
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Serveur lancé sur le port ${PORT}`);
+  console.log(`✅ Serveur lancé sur le port ${PORT}`);
 });
