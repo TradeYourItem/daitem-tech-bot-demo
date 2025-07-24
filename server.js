@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // Route d'accueil
 app.get('/', (req, res) => {
-  res.send('Le bot Daitem est en ligne !');
+  res.send('Bot Daitem actif ✅');
 });
 
 // Démarrage du serveur
