@@ -1,0 +1,18 @@
+{
+  "name": "daitem-tech-bot",
+  "version": "3.0.0",
+  "description": "Assistant technique Daitem avec GPT-4",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["daitem", "gpt4", "assistant", "technique"],
+  "author": "Daitem Tech Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "openai": "^4.30.1"
+  }
+}
