@@ -4,7 +4,7 @@ const helmet = require("helmet");
 const compression = require("compression");
 
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000; // Ne pas dupliquer
 
 // Middlewares
 app.use(cors());
@@ -12,12 +12,17 @@ app.use(helmet());
 app.use(compression());
 app.use(express.json());
 
-// Page d'accueil
+// ROUTE PRINCIPALE
 app.get("/", (req, res) => {
-  res.send("Bienvenue sur le serveur du Daitem Tech Bot !");
+  res.send("✅ Serveur IA Daitem opérationnel !");
 });
 
-// ✅ Route test GPT-4
+// ROUTE DE SANTÉ
+app.get("/health", (req, res) => {
+  res.json({ status: "OK", timestamp: new Date().toISOString() });
+});
+
+// ROUTE TEST GPT
 app.get("/api/test", (req, res) => {
   res.json({
     gpt4: true,
@@ -26,7 +31,7 @@ app.get("/api/test", (req, res) => {
   });
 });
 
-// Lancement du serveur
+// LANCEMENT DU SERVEUR
 app.listen(PORT, () => {
   console.log(`✅ Serveur lancé sur le port ${PORT}`);
 });
